@@ -11,7 +11,8 @@ class TileSprite(Sprite):
 
     COLORS = {
         Puzzle.TILE_WALK: (255, 255, 255),
-        Puzzle.TILE_SLIDE: (64, 64, 255)
+        Puzzle.TILE_SLIDE: (64, 64, 255),
+        Puzzle.TILE_BLOCK: (128, 96, 0)
     };
 
     BORDER_COLOR = (0, 0, 0);

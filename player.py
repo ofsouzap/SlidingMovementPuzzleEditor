@@ -102,16 +102,32 @@ class Player:
             raise Exception("Unknown direction.");
 
     def get_can_move_up(self) -> bool:
-        return (self.tile_pos[1] > 0) and (self.move_anim_dir == None);
+        return (
+            (self.tile_pos[1] > 0)
+            and (self.move_anim_dir == None)
+            and (self.puzzle.get_tile(Player.get_tile_in_direction(self.tile_pos, Player.DIR_UP)) != Puzzle.TILE_BLOCK)
+        );
 
     def get_can_move_down(self) -> bool:
-        return (self.tile_pos[1] < self._bounds[1] - 1) and (self.move_anim_dir == None);
+        return (
+            (self.tile_pos[1] < self._bounds[1] - 1)
+            and (self.move_anim_dir == None)
+            and (self.puzzle.get_tile(Player.get_tile_in_direction(self.tile_pos, Player.DIR_DOWN)) != Puzzle.TILE_BLOCK)
+        );
 
     def get_can_move_right(self) -> bool:
-        return (self.tile_pos[0] > 0) and (self.move_anim_dir == None);
+        return (
+            (self.tile_pos[0] > 0)
+            and (self.move_anim_dir == None)
+            and (self.puzzle.get_tile(Player.get_tile_in_direction(self.tile_pos, Player.DIR_RIGHT)) != Puzzle.TILE_BLOCK)
+        );
 
     def get_can_move_left(self) -> bool:
-        return (self.tile_pos[0] < self._bounds[0] - 1) and (self.move_anim_dir == None);
+        return (
+            (self.tile_pos[0] < self._bounds[0] - 1)
+            and (self.move_anim_dir == None)
+            and (self.puzzle.get_tile(Player.get_tile_in_direction(self.tile_pos, Player.DIR_LEFT)) != Puzzle.TILE_BLOCK)
+        );
 
     def try_move_up(self) -> None:
         if self.get_can_move_up():

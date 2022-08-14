@@ -4,6 +4,7 @@ class Puzzle:
 
     TILE_WALK = 0x00;
     TILE_SLIDE = 0x01;
+    TILE_BLOCK = 0x02;
 
     def __init__(self,
         dims: Tuple[int, int]):
@@ -30,6 +31,9 @@ class Puzzle:
             return Puzzle.TILE_SLIDE;
 
         elif tile == Puzzle.TILE_SLIDE:
+            return Puzzle.TILE_BLOCK;
+
+        elif tile == Puzzle.TILE_BLOCK:
             return Puzzle.TILE_WALK;
 
         else:
